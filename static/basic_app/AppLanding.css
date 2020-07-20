@@ -1,0 +1,108 @@
+body {
+    font-family: 'Lato', 'Cuprum', sans-serif;
+    padding: 0;
+    position: relative;
+}
+
+.highlight {
+    color: #17A2B8 !important;
+    font-weight: bold;
+}
+
+.clear {
+    clear: both;
+}
+
+nav{
+    opacity: 0;
+}
+
+#page-name {
+    margin: 55px 0px 0px 0px;
+    height: 10%;
+    width: 100%;
+    float: left;
+}
+
+#name-text {
+    color: white;
+    font-size: 4vw;
+    float: left;
+
+    margin: 1vw 1vw 1vw 0;
+    opacity: 0;
+}
+
+#logo {
+    width: 7.5vw;
+    float: left;
+
+    display: none;
+}
+
+.right-images{
+    width: 70%;
+    float: right;
+
+    display: none;
+}
+
+.left-images{
+    width: 70%;
+    
+    display: none;
+}
+
+.left-part{
+    float: left;
+    position: relative;
+    width: 30%;
+    z-index: 2;
+
+
+    left: 1%;
+    opacity: 0;
+}
+
+.right-part{
+    float: right;
+    position: relative;
+    width: 30%;
+    text-align: right;
+    z-index: 2;
+
+
+    right: 1%;
+    opacity: 0;
+}
+
+.header{
+    font-size: 4vw;
+    margin-top: 5%;
+    font-weight: 300;
+}
+
+.left-paragraphs{
+    font-size: 1.7vw;
+    font-weight: lighter;
+    width: 90%;
+    margin-bottom: 0;
+}
+
+.right-paragraphs{
+    font-size: 1.7vw;
+    font-weight: lighter;
+    width: 90%;
+    float: right;
+    margin-bottom: 0;
+}
+
+.buttons .btn-lg{
+    font-size: 1.5vw;
+    padding: 2%;
+    margin-top: 10%;
+}
+
+.below{
+    margin-top: 5%;
+}

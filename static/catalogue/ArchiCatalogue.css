@@ -1,0 +1,106 @@
+body {
+    font-family: 'Lato', 'Cuprum', sans-serif;
+    padding: 0;
+    position: relative;
+}
+
+.highlight {
+    color: #17A2B8 !important;
+    font-weight: bold;
+}
+
+.clear {
+    clear: both;
+}
+
+#page-name {
+    margin: 55px 0px 0px 0px;
+    height: 10%;
+    width: 100%;
+    float: left;
+}
+
+#name-text {
+    color: white;
+    font-size: 4vw;
+    float: left;
+    margin: 1vw;
+
+    /*margin: 1vw 1vw 1vw 0;
+    opacity: 0;*/
+}
+
+#logo {
+    width: 7.5vw;
+    float: left;
+
+    /*display: none;*/
+}
+
+#main-image{
+    width: 100%;
+    z-index: 1;
+}
+
+.text-over{
+    color: white;
+    text-align: center;
+    font-size: 3vw;
+    font-weight: 400;
+    position: relative;
+    top: -30vw;
+    z-index: 2;
+}
+
+.count{
+    margin: 0 auto;
+    width: 80%;
+    position: relative;
+    top: -15vw;
+    z-index: 2;
+    padding: 1vw;
+    margin-bottom: 1vw;
+    text-align: center;
+}
+.count-text{
+    color: #0C5460;
+    font-size: 2.5vw;
+    padding: 1vw;
+    margin: 1vw;
+}
+
+.spacing{
+    margin-left: 2vw;
+    padding-left: 2vw;
+    border-left: 2px solid #0C5460;
+    text-align: right;
+}
+
+#welcome{
+    position: relative;
+    top: -5vw;
+}
+
+#page-header{
+    font-size: 5vw;
+    font-weight: 500;
+}
+
+.paragraphs{
+    font-size: 1.7vw;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.headings{
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+    font-size: 3vw;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.card-text{
+    padding-left: 2%;
+    border-left: 2px #0C5460 solid;
+}
