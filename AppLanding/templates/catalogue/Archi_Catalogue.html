@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="../../static/catalogue/ArchiCatalogue.css">
+    <link rel="stylesheet" type="text/css" href="../../static/catalogue/ArchCatalogue.css">
     <script type="text/javascript" src="../../static/jquery.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
@@ -20,13 +20,11 @@
 
     <title>Architecture Catalogue</title>
 
-    <link rel="preload" as="image" href="../../static/catalogue/archi_images/Architecture.jpg">
-
 </head>
 
-<body data-spy="scroll" data-target="#scrollspy" data-offset="100">
+<body data-spy="scroll" data-target="#scrollspy" data-offset="1000">
     <nav id="scrollspy" class="navbar fixed-top navbar-expand-xl navbar-light bg-light">
-        <a class="navbar-brand highlight" href="../basic_app/index.html"><i class="fas fa-home"></i></a>
+        <a class="navbar-brand highlight" href="#"><i class="fas fa-home"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -56,12 +54,38 @@
     </nav>
 
     <div id="page-name" class="container-fluid bg-info">
-        <a href="../basic_app/index.html"><img id="logo" src="../../static/catalogue/archi_images/logo.jpg"></a>
+        <img id="logo" src="../../static/catalogue/archi_images/logo.jpg">
         <div id="name-text">Construction & Raw Materials Solutions</div>
     </div>
 
     <div class="top-section">
-        <img id="main-image" src="../../static/catalogue/archi_images/Architecture.jpg">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="../../static/catalogue/archi_images/main3.png" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="../../static/catalogue/archi_images/main2.png" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="../../static/catalogue/archi_images/4.png" alt="Third slide">
+                </div>
+            </div>
+            
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
         <p class="text-over text-uppercase">Highway to your<br>dream home</p>
 
         <div class="count bg-white shadow">
@@ -122,27 +146,27 @@
         </ul>
     </div>
 
-    <div id="stories" class="container rounded shadow alert-info pb-2 mb-5">
+    <div id="stories" class="container rounded  pb- mb-5">
 
-        <div class="headings alert-info p-3 mb-0">
+        <div class="headings p-5 mb-0">
             Our Top <br>
             <span style="font-weight: 500;">Architectural Stories</span>
         </div>
 
         <div class="row row-cols-1 row-cols-md-2">
             <div class="col mb-4">
-                <div class="card">
-                    <img src="../../static/catalogue/archi_images/Architecture1.png" class="card-img-top">
+                <div class="card shadow">
+                    <img src="../../static/catalogue/archi_images/Architecture1.png" class="card-img-top p-3">
                     <div class="card-body">
                         <h5 class="card-title">Grand Sultan Tea Resort & Golf</h5>
                         <p class="card-text">LOCATION : Sreemangal, Sylhet<br>
-                            CLIENT : River & Rain</p>
+                            CLIENT : Silver Firms</p>
                     </div>
                 </div>
             </div>
             <div class="col mb-4">
-                <div class="card">
-                    <img src="../../static/catalogue/archi_images/Architecture2.png" class="card-img-top">
+                <div class="card shadow">
+                    <img src="../../static/catalogue/archi_images/Architecture2.png" class="card-img-top p-3">
                     <div class="card-body">
                         <h5 class="card-title">Himchori Residence</h5>
                         <p class="card-text">LOCATION : Himchori, Cox's Bazar<br>
@@ -151,8 +175,8 @@
                 </div>
             </div>
             <div class="col mb-4">
-                <div class="card">
-                    <img src="../../static/catalogue/archi_images/Architecture3.png" class="card-img-top">
+                <div class="card shadow">
+                    <img src="../../static/catalogue/archi_images/Architecture3.png" class="card-img-top p-3">
                     <div class="card-body">
                         <h5 class="card-title">Radisson Blu Dhaka Water Garden</h5>
                         <p class="card-text">LOCATION : Dhaka<br>
@@ -161,8 +185,8 @@
                 </div>
             </div>
             <div class="col mb-4">
-                <div class="card">
-                    <img src="../../static/catalogue/archi_images/Architecture4.png" class="card-img-top" alt="">
+                <div class="card shadow">
+                    <img src="../../static/catalogue/archi_images/Architecture4.png" class="card-img-top p-3" alt="">
                     <div class="card-body">
                         <h5 class="card-title">Royal Tulip Sea Pearl Beach Resort
                             & Spa</h5>
