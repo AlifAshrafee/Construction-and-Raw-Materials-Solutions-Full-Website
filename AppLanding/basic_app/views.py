@@ -63,6 +63,8 @@ def user_login(request):
         password = request.POST.get('password')
 
         # Django's built-in authentication function:
+        print(username)
+        print(password)
         user = authenticate(username=username, password=password)
 
         # If we have a user
@@ -84,7 +86,7 @@ def user_login(request):
 
     else:
         #Nothing has been provided for username or password.
-        return render(request, 'basic_app/AppLanding.html', {})
+        return render(request, 'basic_app/index.html', {})
 
 
 def search_product(request):
@@ -106,4 +108,4 @@ def search_product(request):
         else:
             return HttpResponseRedirect('/search/')
 
-    return render(request,'basic_app/AppLanding.html')
+    return render(request,'basic_app/index.html')
