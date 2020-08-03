@@ -17,15 +17,12 @@ from collections import namedtuple
 
 # Create your views here.
 def index(request):
-    return render(request,'basic_app/AppLanding.html')
+    return render(request,'basic_app/index.html')
 
 @login_required
 def user_logout(request):
     # Log out the user
-    session_key = request.COOKIES.get(settings.SESSION_COOKIE_NAME, None)
-    with connection.cursor() as cursor:
-        cursor.callproc('user_logout',[session_key])
-    request.session.flush()
+    logout(request)
     # Return to homepage.
     return HttpResponseRedirect(reverse('index'))
 
@@ -54,7 +51,7 @@ def register(request):
     else:
         user_form=UserForm()
         profile_form=UserProfileInfoForm()
-    return render(request,'basic_app/registration.html',{'user_form':user_form,
+    return render(request,'basic_app/SignUp_FormValidation.html',{'user_form':user_form,
                                                         'profile_form':profile_form,
                                                         'registered':registered})
 def user_login(request):
@@ -67,9 +64,6 @@ def user_login(request):
 
         # Django's built-in authentication function:
         user = authenticate(username=username, password=password)
-
-        qs = vendorProfile.objects.all()
-        print(qs.query)
 
         # If we have a user
         if user:
