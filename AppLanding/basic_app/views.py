@@ -22,7 +22,10 @@ def index(request):
 @login_required
 def user_logout(request):
     # Log out the user
-    logout(request)
+    session_key = request.COOKIES.get(settings.SESSION_COOKIE_NAME, None)
+    with connection.cursor() as cursor:
+        cursor.callproc('user_logout',[session_key])
+    request.session.flush()
     # Return to homepage.
     return HttpResponseRedirect(reverse('index'))
 
