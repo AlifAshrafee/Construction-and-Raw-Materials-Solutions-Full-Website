@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="en">
+{% load static %}
 
 <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="../../static/basic_app/AppLanding.css">
-    <script type="text/javascript" src="../../static/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'basic_app/AppLanding.css' %}">
+    <script type="text/javascript" src="{% static 'jquery.min.js' %}"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 
@@ -15,16 +16,16 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!--<script src="https://kit.fontawesome.com/7b469b21c6.js" crossorigin="anonymous"></script>-->
-    <script defer src="../../static/basic_app/fontawesome/js/all.js"></script>
+    <script defer src="{% static 'fontawesome/js/all.js' %}"></script>
 
     <title>Construction and Raw Materials Solutions</title>
 
-    <link rel="preload" as="image" href="../../static/basic_app/images/Main.jpg">
-    <link rel="preload" as="image" href="../../static/basic_app/images/Architecture.jpg">
-    <link rel="preload" as="image" href="../../static/basic_app/images/Complete.jpg">
-    <link rel="preload" as="image" href="../../static/basic_app/images/Construction.jpg">
-    <link rel="preload" as="image" href="../../static/basic_app/images/Engineering.png">
-    <link rel="preload" as="image" href="../../static/basic_app/images/Raw_Materials.png">
+    <link rel="preload" as="image" href="{% static 'basic_app/images/Main.jpg' %}">
+    <link rel="preload" as="image" href="{% static 'basic_app/images/Architecture.jpg' %}">
+    <link rel="preload" as="image" href="{% static 'basic_app/images/Complete.jpg' %}">
+    <link rel="preload" as="image" href="{% static 'basic_app/images/Construction.jpg' %}">
+    <link rel="preload" as="image" href="{% static 'basic_app/images/Engineering.png' %}">
+    <link rel="preload" as="image" href="{% static 'basic_app/images/Raw_Materials.png' %}">
 </head>
 
 <body data-spy="scroll" data-target="#scrollspy" data-offset="100">
@@ -56,16 +57,21 @@
                     <a class="nav-link" href="#six">Complete</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email">
-                <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}"><button class="btn btn-info my-2 my-sm-0" type="submit">Logout</button></a>
+            {% else %}
+            <form class="form-inline my-2 my-lg-0" method="post" action="{% url 'user_login' %}">
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="text" placeholder="Username" aria-label="Username" name="username">
+                <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password" name="password">
                 <button class="btn btn-info my-2 my-sm-0" type="submit">Login</button>
             </form>
+            {% endif %}
         </div>
     </nav>
 
     <div id="page-name" class="container-fluid bg-info">
-        <a href="index.html"><img id="logo" src="../../static/basic_app/images/logo.jpg"></a>
+        <a href="index.html"><img id="logo" src="{% static 'basic_app/images/logo.jpg' %}"></a>
         <div id="name-text">Construction & Raw Materials Solutions</div>
     </div>
 
@@ -77,7 +83,8 @@
             </div>
             <div class="col-md-3"></div>
         </div>
-        <form>
+        <form method="post" action="{% url 'basic_app:search' %}">
+            {% csrf_token %}
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6 my-4">
@@ -96,7 +103,7 @@
             <p class="left-paragraphs">Our goal is to connect you with the leading vendors. Our platform has
                 just the right solution according to your needs. All in one single simplified platform!</p>
             <div class="buttons">
-                <a class="btn btn-info btn-lg" href="SignUp_FormValidation.html" role="button">Open New Account</a>
+                <a class="btn btn-info btn-lg" href="{% url 'basic_app:register' %}" role="button">Open New Account</a>
                 <a class="btn btn-outline-info btn-lg" href="#" role="button">Learn more</a>
             </div>
         </div>

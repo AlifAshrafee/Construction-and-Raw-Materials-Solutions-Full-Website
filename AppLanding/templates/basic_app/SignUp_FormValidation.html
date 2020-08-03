@@ -1,230 +1,85 @@
 <!doctype html>
 <html lang="en">
+{% load staticfiles %}
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="../../static/basic_app/SignUp.css">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <!doctype html>
-        <html lang="en">
-        {% load staticfiles %}
-
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-                integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-            <title>Sign Up</title>
-
-            <style type="text/css">
-            body{
-                background-color: #D1ECF1;
-            }
-                .alert {
-                    display: none;
-                }
-            </style>
-        </head>
-
-        <body>
-
-              {% if registered %}
-                <div class="jumbotron text-center alert-success">
-                  <h1>Thank you for registering!</h1>
-                </div>
-
-              {% else %}
-                <h1 class="display-4 text-center">Sign Up</h1>
-                  <form method="POST" action="{% url 'basic_app:register' %}">
-                    {% csrf_token %}
-                    {{ user_form.non_field_errors }}
-                    {{ profile_form.non_field_errors }}
-                      <div class="form-group">
-                        {{ user_form.username.errors }}
-                        <label for="{{ user_form.username.id_username }}">Username</label>
-                        <!--  <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username"> -->
-                        {{ user_form.username}}
-                        <div id="username-error" class="alert alert-danger" role="alert"></div>
-                      </div>
-
-                      <div class="form-group">
-                          {{ user_form.email.errors }}
-                          <label for="{{ user_form.email.id_email }}">Email address</label>
-                          <!-- <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email adress"> -->
-                          {{ user_form.email }}
-                          <div id="email-error" class="alert alert-danger" role="alert"></div>
-                      </div>
-
-                      <div class="form-group">
-                          {{ profile_form.contact_number.errors }}
-                          <label for="{{ profile_form.contact_number.id_contact_number }}">Contact Number</label>
-                          <!-- <input type="text" class="form-control" id="contact" name="contact" placeholder="01XXXXXXXXX"> -->
-                          {{ profile_form.contact_number }}
-                          <div id="contact-error" class="alert alert-danger" role="alert"></div>
-                      </div>
-
-                      <div class="form-group">
-                          {{ user_form.password.errors }}
-                          <label for="{{ user_form.password.id_password }}">Password</label>
-                          <!-- <input type="password" class="form-control" id="password" name="password"> -->
-                          {{ user_form.password }}
-                          <div id="length-error" class="alert alert-danger" role="alert"></div>
-                      </div>
-
-                      <div class="form-group">
-                          {{ user_form.confirm_password.errors }}
-                          <label for="{{ user_form.confirm_password.id_confirm_password }}">Confirm Password</label>
-                          <!--<input type="password" class="form-control" id="confirm-password" name="confirm-password">-->
-                          {{ user_form.confirm_password }}
-                          <div id="password-error" class="alert alert-danger" role="alert"></div>
-                      </div>
-                      <button type="submit" id="submit-button" class="btn btn-info">Sign Up</button>
-                      <div id="success" class="alert alert-success" role="alert">Signed in successfully!</div>
-                  </form>
-                  <br>
-              {% endif %}
-            </div>
-
-
-            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-                integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-                crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-                crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-                integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-                crossorigin="anonymous"></script>
-
-                <script type="text/javascript">
-                    $("form").submit(function (e) {
-
-                      /* e.preventDefault(); /*This function is for keeping the page from reloading after completing the form successfully. Normally this line won't be there.
-            And after a successful submission, there will be serverside validation and if that too is successful, the page will proceed to another page
-             where it will say successfully signed up or maybe go to the homepage*/
-
-                        function isEmail(email) {
-                            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-                            return regex.test(email);
-                        }
-
-                        var error = 0;
-
-                        if ($("#id_username").val() == "") {
-                            error++;
-                            $("#username-error").css("display", "block");
-                            $("#username-error").html("Please enter username");
-                        } else {
-                            $("#username-error").css("display", "none");
-                        }
-
-                        if (isEmail($("#id_email").val()) == false) {
-                            error++;
-                            $("#email-error").css("display", "block");
-                            $("#email-error").html("Invalid email address");
-                        } else {
-                            $("#email-error").css("display", "none");
-                        }
-
-                        if ($.isNumeric($("#id_contact_number").val()) == false) {
-                            error++;
-                            $("#contact-error").css("display", "block");
-                            $("#contact-error").html("Invalid contact");
-                        } else {
-                            $("#contact-error").css("display", "none");
-                        }
-
-                        if ($("#id_password").val().length < 8) {
-                            error++;
-                            $("#length-error").css("display", "block");
-                            $("#length-error").html("At least 8 characters");
-                        } else {
-                        $("#length-error").css("display", "none");
-                         if ($("#id_password").val() != $("#id_confirm_password").val()) {
-                            error++;
-                            $("#password-error").css("display", "block");
-                            $("#password-error").html("Reconfirm Password");
-                           } else {
-                            $("#password-error").css("display", "none");
-                          }
-                        }
-
-                        if (error == 0) {
-                            /*$("#success").css("display", "block");*/
-                            return true;
-                        } else {
-                            return false;
-                        }
-
-                    });
-                </script>
-
-
-
-        </body>
-
-        </html>
 
     <title>Sign Up</title>
 
     <style type="text/css">
-        body{
-            background-color: #D1ECF1;
+    body{
+        background-color: #D1ECF1;
+    }
+        .alert {
+            display: none;
         }
     </style>
 </head>
 
 <body>
-    <div id="page-name" class="container-fluid bg-info">
-        <a href="index.html"><img id="logo" src="../../static/basic_app/images/logo.jpg"></a>
-        <div id="name-text">Construction & Raw Materials Solutions</div>
-    </div>
+    <div class="container col-4 p-3 mt-3">
+      {% if registered %}
+        <div class="jumbotron text-center alert-success">
+          <h1>Thank you for registering!</h1>
+        </div>
 
-    <div class="container col-4 p-3">
+      {% else %}
         <h1 class="display-4 text-center">Sign Up</h1>
-
-        <form method="POST">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
+          <form method="POST" action="{% url 'basic_app:register' %}">
+            {% csrf_token %}
+            {{ user_form.non_field_errors }}
+            {{ profile_form.non_field_errors }}
+              <div class="form-group">
+                {{ user_form.username.errors }}
+                <label for="{{ user_form.username.id_username }}">Username</label>
+                <!--  <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username"> -->
+                {{ user_form.username}}
                 <div id="username-error" class="alert alert-danger" role="alert"></div>
-            </div>
+              </div>
 
-            <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email adress">
-                <div id="email-error" class="alert alert-danger" role="alert"></div>
-            </div>
+              <div class="form-group">
+                  {{ user_form.email.errors }}
+                  <label for="{{ user_form.email.id_email }}">Email address</label>
+                  <!-- <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email adress"> -->
+                  {{ user_form.email }}
+                  <div id="email-error" class="alert alert-danger" role="alert"></div>
+              </div>
 
-            <div class="form-group">
-                <label for="contact">Contact Number</label>
-                <input type="text" class="form-control" id="contact" name="contact" placeholder="01XXXXXXXXX">
-                <div id="contact-error" class="alert alert-danger" role="alert"></div>
-            </div>
+              <div class="form-group">
+                  {{ profile_form.contact_number.errors }}
+                  <label for="{{ profile_form.contact_number.id_contact_number }}">Contact Number</label>
+                  <!-- <input type="text" class="form-control" id="contact" name="contact" placeholder="01XXXXXXXXX"> -->
+                  {{ profile_form.contact_number }}
+                  <div id="contact-error" class="alert alert-danger" role="alert"></div>
+              </div>
 
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
-                <div id="length-error" class="alert alert-danger" role="alert"></div>
-            </div>
+              <div class="form-group">
+                  {{ user_form.password.errors }}
+                  <label for="{{ user_form.password.id_password }}">Password</label>
+                  <!-- <input type="password" class="form-control" id="password" name="password"> -->
+                  {{ user_form.password }}
+                  <div id="length-error" class="alert alert-danger" role="alert"></div>
+              </div>
 
-            <div class="form-group">
-                <label for="confirm-password">Confirm Password</label>
-                <input type="password" class="form-control" id="confirm-password" name="confirm-password">
-                <div id="password-error" class="alert alert-danger" role="alert"></div>
-            </div>
-
-            <button type="submit" id="submit-button" class="btn btn-info">Sign Up</button>
-            <div id="success" class="alert alert-success" role="alert">Signed in successfully!</div>
-        </form>
-        <br>
+              <div class="form-group">
+                  {{ user_form.confirm_password.errors }}
+                  <label for="{{ user_form.confirm_password.id_confirm_password }}">Confirm Password</label>
+                  <!--<input type="password" class="form-control" id="confirm-password" name="confirm-password">-->
+                  {{ user_form.confirm_password }}
+                  <div id="password-error" class="alert alert-danger" role="alert"></div>
+              </div>
+              <button type="submit" id="submit-button" class="btn btn-info">Sign Up</button>
+              <div id="success" class="alert alert-success" role="alert">Signed in successfully!</div>
+          </form>
+          <br>
+      {% endif %}
     </div>
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -236,68 +91,70 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
-        $("form").submit(function (e) {
+        <script type="text/javascript">
+            $("form").submit(function (e) {
 
-            e.preventDefault(); /*This function is for keeping the page from reloading after completing the form successfully. Normally this line won't be there.
-And after a successful submission, there will be serverside validation and if that too is successful, the page will proceed to another page
- where it will say successfully signed up or maybe go to the homepage*/
+              /* e.preventDefault(); /*This function is for keeping the page from reloading after completing the form successfully. Normally this line won't be there.
+    And after a successful submission, there will be serverside validation and if that too is successful, the page will proceed to another page
+     where it will say successfully signed up or maybe go to the homepage*/
 
-            function isEmail(email) {
-                var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-                return regex.test(email);
-            }
+                function isEmail(email) {
+                    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                    return regex.test(email);
+                }
 
-            var error = 0;
+                var error = 0;
 
-            if ($("#username").val() == "") {
-                error++;
-                $("#username-error").css("display", "block");
-                $("#username-error").html("Please enter username");
-            } else {
-                $("#username-error").css("display", "none");
-            }
+                if ($("#id_username").val() == "") {
+                    error++;
+                    $("#username-error").css("display", "block");
+                    $("#username-error").html("Please enter username");
+                } else {
+                    $("#username-error").css("display", "none");
+                }
 
-            if (isEmail($("#email").val()) == false) {
-                error++;
-                $("#email-error").css("display", "block");
-                $("#email-error").html("Invalid email address");
-            } else {
-                $("#email-error").css("display", "none");
-            }
+                if (isEmail($("#id_email").val()) == false) {
+                    error++;
+                    $("#email-error").css("display", "block");
+                    $("#email-error").html("Invalid email address");
+                } else {
+                    $("#email-error").css("display", "none");
+                }
 
-            if ($.isNumeric($("#contact").val()) == false) {
-                error++;
-                $("#contact-error").css("display", "block");
-                $("#contact-error").html("Invalid contact");
-            } else {
-                $("#contact-error").css("display", "none");
-            }
+                if ($.isNumeric($("#id_contact_number").val()) == false) {
+                    error++;
+                    $("#contact-error").css("display", "block");
+                    $("#contact-error").html("Invalid contact");
+                } else {
+                    $("#contact-error").css("display", "none");
+                }
 
-            if ($("#password").val().length < 8) {
-                error++;
-                $("#length-error").css("display", "block");
-                $("#length-error").html("At least 8 characters");
-            } else {
+                if ($("#id_password").val().length < 8) {
+                    error++;
+                    $("#length-error").css("display", "block");
+                    $("#length-error").html("At least 8 characters");
+                } else {
                 $("#length-error").css("display", "none");
-                if ($("#password").val() != $("#confirm-password").val()) {
+                 if ($("#id_password").val() != $("#id_confirm_password").val()) {
                     error++;
                     $("#password-error").css("display", "block");
                     $("#password-error").html("Reconfirm Password");
-                } else {
+                   } else {
                     $("#password-error").css("display", "none");
+                  }
                 }
-            }
 
-            if (error == 0) {
-                $("#success").css("display", "block");
-                return true;
-            } else {
-                return false;
-            }
+                if (error == 0) {
+                    /*$("#success").css("display", "block");*/
+                    return true;
+                } else {
+                    return false;
+                }
 
-        });
-    </script>
+            });
+        </script>
+
+
 
 </body>
 
