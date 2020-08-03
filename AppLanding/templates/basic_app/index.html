@@ -16,7 +16,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!--<script src="https://kit.fontawesome.com/7b469b21c6.js" crossorigin="anonymous"></script>-->
-    <script defer src="{% static 'fontawesome/js/all.js' %}"></script>
+    <script defer src="{% static 'basic_app/fontawesome/js/all.js' %}"></script>
 
     <title>Construction and Raw Materials Solutions</title>
 
@@ -30,7 +30,7 @@
 
 <body data-spy="scroll" data-target="#scrollspy" data-offset="100">
     <nav id="scrollspy" class="navbar fixed-top navbar-expand-xl navbar-light bg-light">
-        <a class="navbar-brand highlight" href="index.html"><i class="fas fa-home"></i></a>
+        <a class="navbar-brand highlight" href="{% url 'index' %}"><i class="fas fa-home"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -107,18 +107,18 @@
                 <a class="btn btn-outline-info btn-lg" href="#" role="button">Learn more</a>
             </div>
         </div>
-        <img id="one" class="right-images" src="../../static/basic_app/images/Main.jpg">
+        <img id="one" class="right-images" src="{% static 'basic_app/images/Main.jpg' %}">
     </div>
 
     <div id="2">
-        <img id="two" class="left-images" src="../../static/basic_app/images/Architecture.jpg">
+        <img id="two" class="left-images" src="{% static 'basic_app/images/Architecture.jpg' %}">
         <div class="right-part below">
             <h1 class="header">Architecture Solutions</h1>
             <p class="right-paragraphs">We have the country's leading architects and architecture firms. Combined
                 with their professional expertise and our connections we have built some of the largetst projects in
                 the country.</p>
             <div class="buttons">
-                <a class="btn btn-info btn-lg" href="../catalogue/ArchiCatalogue.html" role="button">Learn more</a>
+                <a class="btn btn-info btn-lg" href="{% url 'catalogue:architecture' %}" role="button">Learn more</a>
             </div>
         </div>
     </div>
@@ -130,21 +130,21 @@
                 with their professional expertise and our connections we have built some of the largetst projects in
                 the country.</p>
             <div class="buttons">
-                <a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
+                <a class="btn btn-info btn-lg" href="{% url 'catalogue:construction' %}" role="button">Learn more</a>
             </div>
         </div>
-        <img id="three" class="right-images" src="../../static/basic_app/images/Construction.jpg">
+        <img id="three" class="right-images" src="{% static 'basic_app/images/Construction.jpg' %}">
     </div>
 
     <div id="4">
-        <img id="four" class="left-images" src="../../static/basic_app/images/Raw_Materials.png">
+        <img id="four" class="left-images" src="{% static 'basic_app/images/Raw_Materials.png' %}">
         <div class="right-part below">
             <h1 class="header">Raw <br>Materials Solutions</h1>
             <p class="right-paragraphs">We have the country's leading suppliers of quality raw materials.
                 Combined with their professional expertise and our connections we have built some of the largetst
                 projects in the country.</p>
             <div class="buttons">
-                <a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
+                <a class="btn btn-info btn-lg" href="{% url 'catalogue:rawMaterials' %}" role="button">Learn more</a>
             </div>
         </div>
     </div>
@@ -156,21 +156,21 @@
                 their professional expertise and our connections we have built some of the largetst projects in the
                 country.</p>
             <div class="buttons">
-                <a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
+                <a class="btn btn-info btn-lg" href="{% url 'catalogue:engineering' %}" role="button">Learn more</a>
             </div>
         </div>
-        <img id="five" class="right-images" src="../../static/basic_app/images/Engineering.png">
+        <img id="five" class="right-images" src="{% static 'basic_app/images/Engineering.png' %}">
     </div>
 
     <div id="6">
-        <img id="six" class="left-images" src="../../static/basic_app/images/Complete.jpg">
+        <img id="six" class="left-images" src="{% static 'basic_app/images/Complete.jpg' %}">
         <div class="right-part below">
             <h1 class="header">Complete Solutions</h1>
             <p class="right-paragraphs">We have the country's leading developer companies who provide who the
                 complete package of solutions. Combined with their professional expertise and our connections we
                 have built some of the largetst projects in the country.</p>
             <div class="buttons">
-                <a class="btn btn-info btn-lg" href="#" role="button">Learn more</a>
+                <a class="btn btn-info btn-lg" href="{% url 'catalogue:complete' %}" role="button">Learn more</a>
             </div>
         </div>
     </div>
