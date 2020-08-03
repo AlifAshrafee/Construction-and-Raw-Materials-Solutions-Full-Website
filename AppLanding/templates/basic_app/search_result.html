@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% load static %}
+{% load basic_app_filters %}
+
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script defer src="{% static 'basic_app/fontawesome/js/all.js' %}"></script>
+
+    <style type="text/css">
+    body {
+        font-family: 'Lato', 'Cuprum', sans-serif;
+        padding: 0;
+        position: relative;
+        /*font-size: 1.8vw;*/
+    }
+    #page-name {
+        margin: 0px 0px 40px 0px;
+        height: 10%;
+        width: 100%;
+        float: left;
+    }
+
+    #name-text {
+        color: white;
+        font-size: 4vw;
+        margin: 1vw 1vw 1vw 0;
+        float: left;
+
+        /*margin: 1vw 1vw 1vw 0;
+        opacity: 0;*/
+    }
+
+    #logo {
+        width: 7.5vw;
+        float: left;
+
+        /*display: none;*/
+    }
+    </style>
+
+    <title>Search Result</title>
+  </head>
+  <body >
+
+    <div id="page-name" class="container-fluid bg-info">
+        <a href="{% url 'index' %}"><img id="logo" src="{% static 'basic_app/images/logo.jpg' %}"></a>
+        <div id="name-text">Construction & Raw Materials Solutions</div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            {% if result %}
+              {% for row in result %}
+              <div class="col-lg-6">
+                <div class="card mb-5 alert-info border-info">
+
+                        {% for key,val in row.items %}
+
+                            {%if key == "Company Name"%}
+
+                            <div class="card-header"><h4 class="card-title">{{val}}</h4></div>
+
+
+
+
+                            {% elif key == "Company Product" %}
+                            <div class="card-body">
+                              <div class="container">
+                                <div class="row">
+                            <div class="col-lg-6">
+
+                            <p class="card-text">{{key}}:</p>
+                            <h4 class="card-title">{{val}} </h4>
+
+                            {% elif key == "Category" %}
+                            <p class="card-text">{{key}}:</p>
+                            <h4 class="card-title">{{val}} </h4>
+
+                            </div>
+                            {% elif key == "Price" %}
+                            <div class="col-lg-6">
+                            <p class="card-text">{{key}}:</p>
+                            <h4 class="card-title">{{val}} </h4>
+
+                            {% elif key == "Rating" %}
+                            <p class="card-text">{{key}}: </p>
+                            <h4 class="card-title">
+                            {% for i in val|times %}
+                             <i class="fas fa-star"></i>
+                             {% endfor %}
+                           </h4>
+                           </div>
+                           </div>
+                            </div>
+                            </div>
+                            {% endif %}
+
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+                {% endfor %}
+          </div>
+    </div>
+
+
+
+
+          {% else %}
+          <div class="container">
+
+
+          <div class="alert alert-info" role="alert">
+          <h3 class="text-center">  No Result Found! </h3>
+          </div>
+          </div>
+          <a class="btn btn-outline-info mx-auto" href="{% url 'index' %}" role="button">Back to homepage</a>
+          {% endif %}
+
+
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  </body>
+</html>
