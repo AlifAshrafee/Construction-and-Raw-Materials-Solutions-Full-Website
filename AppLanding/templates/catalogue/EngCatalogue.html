@@ -24,14 +24,14 @@
 
 <body data-spy="scroll" data-target="#scrollspy" data-offset="100">
     <nav id="scrollspy" class="navbar fixed-top navbar-expand-xl navbar-light bg-light">
-        
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <a class="navbar-brand highlight" href="#"><i class="fas fa-home"></i></a>
+            <a class="navbar-brand highlight" href="{% url 'index' %}"><i class="fas fa-home"></i></a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#main-image">Engineers<span class="sr-only">(current)</span></a>
@@ -46,11 +46,6 @@
                     <a class="nav-link" href="#stories">Top Stories</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="email" placeholder="Email" aria-label="Email">
-                <input class="form-control mr-sm-2" type="password" placeholder="Password" aria-label="Password">
-                <button class="btn btn-info my-2 my-sm-0" type="submit">Login</button>
-            </form>
         </div>
     </nav>
 
@@ -77,7 +72,7 @@
                     <img class="d-block w-100" src="../../static/catalogue/eng_images/main5.png" alt="Third slide">
                 </div>
             </div>
-            
+
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -87,7 +82,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <p class="text-over text-uppercase">IF YOU CAN ENVISION IT, 
+        <p class="text-over text-uppercase">IF YOU CAN ENVISION IT,
             <br>THEN WE CAN BUILD IT</p>
 
         <div class="count bg-white shadow">
@@ -125,7 +120,7 @@
                 <div class="media-body text-white">
                     <h5 class="mt-0 mb-1">Prof. Dr. M. Shamim Z. Bosunia</h5>
                     Prof. Dr. M. Shamim Z. Bosunia is a prominent academician, leader and structural
- engineering expert of Bangladesh.is famous in the engineering  community as a 
+ engineering expert of Bangladesh.is famous in the engineering  community as a
 specialist structural and concrete design expert. He is considered as a
 pioneering academician promoting modern concrete construction in Bangladesh.
                 </div>
@@ -148,7 +143,7 @@ from Japan Concrete Institute in 2001.
                     Jamilur Reza Choudhury is a Bangladeshi civil engineer.
 His thesis was on "Cracks in Concrete Beam using Computer-Aided Design".
 In 1968, he was conferred a Ph.D. degree on the topic of
-"Shear Wall & Structural Analysis of High rise Building". 
+"Shear Wall & Structural Analysis of High rise Building".
 He was the Technical Adviser of Padma bridge.
                 </div>
             </li>

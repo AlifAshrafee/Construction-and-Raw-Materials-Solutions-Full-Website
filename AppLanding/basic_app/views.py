@@ -2,6 +2,7 @@ from django.shortcuts import render
 from basic_app.forms import UserForm,UserProfileInfoForm
 from basic_app.models import vendorProfile,companyProduct
 from django.db import connection
+from django.conf import settings
 
 import re
 import cx_Oracle
@@ -22,7 +23,11 @@ def index(request):
 @login_required
 def user_logout(request):
     # Log out the user
-    logout(request)
+    session_key = request.COOKIES.get(settings.SESSION_COOKIE_NAME, None)
+
+    with connection.cursor() as cursor:
+        cursor.callproc('user_logout',[session_key])
+    request.session.flush()
     # Return to homepage.
     return HttpResponseRedirect(reverse('index'))
 
@@ -82,7 +87,7 @@ def user_login(request):
         else:
             print("Someone tried to login and failed.")
             print("They used username: {} and password: {}".format(username,password))
-            return HttpResponse("Invalid login details supplied.")
+            return HttpResponse("<h1>Invalid login details supplied.</h1>")
 
     else:
         #Nothing has been provided for username or password.
