@@ -84,11 +84,11 @@
             <div class="col-md-3"></div>
         </div>
         <form method="post" action="{% url 'basic_app:search' %}">
-            {% csrf_token %}
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6 my-4">
-                    <input type="text" class="form-control" placeholder="Product name, Product type or Company name">
+                    {% csrf_token %}
+                    <input type="text" name="search" class="form-control" placeholder="Product name, Product type or Company name">
                 </div>
                 <div class="col-md-3 my-4">
                     <button class="btn btn-info my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
